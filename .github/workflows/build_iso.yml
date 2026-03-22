@@ -1,4 +1,4 @@
-name: Build and Upload Lytee ISO
+name: Build Lytee ISO
 
 on:
   workflow_dispatch:
@@ -6,22 +6,23 @@ on:
 jobs:
   build-iso:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Install dependencies
         run: |
-          sudo apt update
-          sudo apt install -y live-build git
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y live-build git calamares zenity rofi feh mpv ffmpeg xserver-xorg-input-all
 
-      - name: Build Lytee ISO
+      - name: Build ISO
         run: |
           chmod +x build.sh
-          sudo ./build.sh
+          ./build.sh
 
-      - name: Upload ISO artifact
+      - name: Upload ISO
         uses: actions/upload-artifact@v4
         with:
           name: lytee-iso
