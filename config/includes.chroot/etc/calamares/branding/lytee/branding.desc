@@ -1,0 +1,7 @@
+componentName: lytee
+strings:
+  productName: Lytee OS
+  shortProductName: Lytee
+  version: "1.0"
+images:
+  productLogo: "/usr/share/lytee/logo.png"
