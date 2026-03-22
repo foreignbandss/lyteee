@@ -1,0 +1,7 @@
+#!/bin/bash
+if [[ "$1" == *.mp4 ]]; then
+ echo "XRV" > "$2.xrv"
+ cat "$1" >> "$2.xrv"
+else
+ tail -n +2 "$1" > "$2.mp4"
+fi
