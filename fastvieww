@@ -1,0 +1,12 @@
+#!/bin/bash
+case "$1" in
+*.xri)
+ xri-convert "$1" /tmp/preview
+ feh /tmp/preview.png
+;;
+*.xrv)
+ xrv-convert "$1" /tmp/preview
+ mpv /tmp/preview.mp4
+;;
+*) echo "Unknown format";;
+esac
