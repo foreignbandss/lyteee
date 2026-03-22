@@ -1,0 +1,7 @@
+#!/bin/bash
+if [[ "$1" == *.png ]]; then
+ echo "XRI" > "$2.xri"
+ cat "$1" >> "$2.xri"
+else
+ tail -n +2 "$1" > "$2.png"
+fi
