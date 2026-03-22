@@ -1,0 +1,5 @@
+<mime-info>
+ <mime-type type="video/x-xrv">
+  <glob pattern="*.xrv"/>
+ </mime-type>
+</mime-info>
