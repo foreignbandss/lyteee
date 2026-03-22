@@ -1,0 +1,25 @@
+name: Build Lytee ISO
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y live-build git
+    - name: Build ISO
+      run: |
+        cd $GITHUB_WORKSPACE
+        chmod +x build.sh
+        sudo ./build.sh
+    - name: Upload ISO
+      uses: actions/upload-artifact@v3
+      with:
+        name: lytee-iso
+        path: live-image-amd64.hybrid.iso
