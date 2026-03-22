@@ -1,0 +1,5 @@
+#sidebar {
+ background-image: url("/usr/share/lytee/logo.png");
+ background-position: bottom right;
+ background-repeat: no-repeat;
+}
